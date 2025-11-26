@@ -1,0 +1,8 @@
+<p>form-builder works!</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+    <label for="username">Username:</label>
+    <input formControlName="name" type="text">
+    <label for="email">Email:</label>       
+    <input formControlName="email" type="email">
+    <button type="submit">Submit</button>
+</form>

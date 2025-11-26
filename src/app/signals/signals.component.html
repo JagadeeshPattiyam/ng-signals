@@ -1,0 +1,33 @@
+<p>signals works!</p>
+<app-button [buttonType]="'getuser'" (sendBtnclick)="fromChild($event)">Get User</app-button>
+<div>
+  <p>Button was clicked! {{signals.buttonCLicked()}}</p>
+</div>
+<app-button [buttonType]="'UpdateUser'" (sendBtnclick)="fromChild($event)">Update User</app-button>
+<!-- <button (click)="load()">Load Users</button> -->
+@if(UserList().length === 0){<p>No user data available.</p>}
+@else{
+@for(userData of UserList(); track userData) {
+  <div>
+    <p>User Name: {{userData.id}}</p>
+    <p>User Email: {{userData.name}}</p>
+  </div>
+}   
+}
+
+<app-form-builder></app-form-builder>
+
+@if(formData() === undefined || formData().name === undefined && formData().email === undefined){
+<p>No form data available.</p>
+}
+@else{
+  
+  <div>
+    <p>User Name: {{formData().name}}</p>
+    <p>User Email: {{formData().email}}</p>
+  </div>
+
+  
+}
+
+

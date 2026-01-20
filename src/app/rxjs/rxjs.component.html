@@ -1,0 +1,15 @@
+<div class="searchBox">
+    <input type="text" placeholder="Search..." [(ngModel)]="searchedTxt" (keyup)="checkUserName()"/>
+<br />
+<b>Your text:</b>{{searchedTxt}}
+<br />
+@if(searchedTxt !== '' ){
+<span>
+  <b>Result:</b> {{userData | json}}
+</span>
+}
+
+</div>
+<div class="dynamic_form">
+  <app-dynamic-form></app-dynamic-form>
+</div>

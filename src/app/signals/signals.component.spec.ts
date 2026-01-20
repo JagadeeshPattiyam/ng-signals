@@ -20,4 +20,9 @@ describe('SignalsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('get signalValue should return the current value of the signal', () => {
+    component.UserList.set([{ id: 1, name: 'Test User' }]);
+    expect(component.UserList()).toEqual([{ id: 1, name: 'Test User' }]);
+  });
 });

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { ButtonComponent } from './button.component';
+
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -10,14 +10,19 @@ describe('ButtonComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ButtonComponent]
     })
-    .compileComponents();
-    
+    .compileComponents(); 
     fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+// Input test
+  it('should update UI when @Input changes', () => {
+    fixture.componentRef.setInput('buttonType', 'primary');
+   // component.buttonType = 'Angular';
+    fixture.detectChanges();
+    expect(component.buttonType()).toBe('primary');
+  
   });
-});
+}
+);

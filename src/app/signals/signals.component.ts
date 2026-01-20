@@ -11,10 +11,25 @@ import { FormBuilderComponent } from '../form-builder/form-builder.component';
   styleUrl: './signals.component.scss'
 })
 export class SignalsComponent {
+ 
 constructor(public signals: SignalsService){
   effect(()=>{
   console.log("Form Data Updated:", this.formData());
 });
+
+
+
+const ids = Array.from({ length: 50000 }, (_, i) => i); // huge data
+const idSet = new Set(ids);
+const target = 49999; // last element
+
+console.time("Array includes");
+ids.includes(target);
+console.timeEnd("Array includes");
+
+console.time("Set has");
+idSet.has(target);
+console.timeEnd("Set has");
 }
 showBoxSignal = this.signals.buttonCLicked; // get signal
 UserList = this.signals.getUser; // get signal

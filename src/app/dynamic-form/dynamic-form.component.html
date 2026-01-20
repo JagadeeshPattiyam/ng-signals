@@ -1,0 +1,18 @@
+<p>dynamic-form works!</p>
+
+
+<form [formGroup]="dynamicform" (ngSubmit)="submitForm()">
+  <input formControlName="name" placeholder="Enter Name" />
+
+  <div formArrayName="skills">
+  @for (skill of skills.controls; track skill; let idx = $index) {
+      <div>
+        <input [formControlName]="idx" placeholder="Enter Skill" />
+        <button type="button" (click)="removeSkill(idx)">X</button>  
+      </div>
+    }
+  </div>
+
+  <button type="button" (click)="addSkill()">+ Add Skill</button>
+  <button type="submit" [disabled]="dynamicform.invalid">Submit</button>
+</form>
